@@ -10,7 +10,7 @@ const UnstyledResume: FunctionComponent<ResumeProps> = ({ className }) => {
     fullTime: false,
     internships: false,
     research: true,
-    summary: true,
+    summary: false,
     technicalSkills: true,
     researchInterests: true
   })
