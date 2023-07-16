@@ -1,5 +1,5 @@
 import { Dispatch, FunctionComponent, HTMLAttributes, ReactNode, SetStateAction } from 'react';
-import { ResearchExperience, ResumeEntry } from './ResumeEntry';
+import { ResumeEntry } from './ResumeEntry';
 import { Experiences } from './Experiences';
 import { education, resumeEntries } from './resume-entries';
 import { TechnicalSkills } from './TechnicalSkills';
