@@ -24,7 +24,10 @@ const ThemeSwitch: FunctionComponent<ThemeSwitchProps> = ({ label, ...props }) =
 );
 
 const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => {
-  const { color, garden, setColor, setGarden } = useContext(ThemeContext);
+  const { color, garden, setColor, setGarden, theme } = useContext(ThemeContext);
+
+  const themeIcon = <span aria-hidden className="material-symbols-outlined">{theme.icon}</span>;
+  const splitter = garden ? themeIcon : <span aria-hidden>|</span>;
 
   return (
     <div {...props}>
@@ -32,8 +35,10 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
         <h1><strong>Emmi Russo</strong></h1>
         <div className="name__links-container">
           <a href="mailto:emmi@emmi.dev">emmi@emmi.dev</a>
-          |
-          <a href="%PUBLIC_URL%/Emmi_Russo_Technical_Resume_2023.pdf">PDF Resume</a>
+          {splitter}
+          Denver, CO
+          {splitter}
+          <a href="https://cdn.brandfolder.io/Z32ZS9WJ/at/4g7xcj59g59h5f3rv3zwpt6/Emmi_Russo_CV_2023.pdf">CV</a>
         </div>
       </div>
       <div className="theme-controls" role="group" aria-labelledby="id-group-label">
@@ -69,11 +74,13 @@ const StyledThemeControls = styled(UnstyledThemeControls)`
     }
 
     &__links-container {
+      align-items: center;
       display: flex;
-      gap: 15px;
+      gap: 10px;
+      text-transform: lowercase;
 
       a {
-        color: ${props => props.theme.linkColor}
+        color: ${props => props.theme.linkColor};
       }
     }
   }

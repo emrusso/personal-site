@@ -1,7 +1,7 @@
 import { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { ThemeControls } from './ThemeControls';
-import { Resume } from './Resume';
+import { ThemeControls } from './theme-controls';
+import { SectionsContainer } from './sections-container';
 
 interface BodyProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -9,7 +9,7 @@ const UnstyledBody: FunctionComponent<BodyProps> = (props) => {
   return (
     <div {...props}>
       <ThemeControls />
-      <Resume />
+      <SectionsContainer />
     </div>
   );
 };
