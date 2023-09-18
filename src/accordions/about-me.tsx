@@ -8,7 +8,7 @@ interface AboutMeProps extends HTMLAttributes<HTMLDivElement> {}
 const researchQuestions = [
   "How can we ensure that the screen time preschoolers are likely to get is as positive as possible?",
   "Can we leverage broadly available mobile applications to support underserved populations?",
-  "What are best practices when designing games and technology for children to support their natural tendency to uncover knowledge through play?"
+  "What are best practices when designing games and technology for children to support their tendency to uncover knowledge through play?"
 ]
 
 const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
@@ -18,10 +18,10 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
     <div {...props}>
       <div>
         Emmi here! I've spent the last five years as a professional full-stack software engineer.
-        I'm known on my team for thoughtful code reviews, strong empathy for users and teammates alike, and an attention to detail with communication skills that keep everyone on the same page.
-        Despite my enjoyment of the day-to-day of software engineering as a career, I find myself drawn back to my academic interests, particularly the intersection of technology and developmental cognitive psychology.
+        I'm known on my team for thoughtful code reviews, strong empathy for users and teammates alike, and an attention to detail, with communication skills that keep everyone on the same page. In fact, I even won <a href="https://www.smartsheet.com/content-center/inside-smartsheet/company-news/meet-our-q1-brightspot-award-winners">an award</a> for it!
       </div>
       <div>
+        I have an academic background in developmental cognitive psychology and computer science.
         I am interested in how children learn through structured and unstructured play and how that translates to play with machines, particularly in the context of video games and mobile applications.
         Not only is this fascinating to me academically, I feel that such research has the capacity to be deeply valuable to a society undergoing rapid growth in the availability of technology.
         I would like to have a strong understanding of the facets necessary to answers questions like the following:

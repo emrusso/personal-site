@@ -64,7 +64,8 @@ const StyledThemeControls = styled(UnstyledThemeControls)`
   flex-direction: row;
   justify-content: space-between;
   margin: auto;
-  max-width: 1000px;
+  // vary max-width on screen size - bigger for smaller screens, 60% for desktop
+  max-width: 60%;
 
   .name {
     h1 {
@@ -78,10 +79,6 @@ const StyledThemeControls = styled(UnstyledThemeControls)`
       display: flex;
       gap: 10px;
       text-transform: lowercase;
-
-      a {
-        color: ${props => props.theme.linkColor};
-      }
     }
   }
 

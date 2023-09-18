@@ -43,7 +43,7 @@ const UnstyledSectionsContainer: FunctionComponent<SectionsContainerProps> = ({ 
 
 const StyledSectionsContainer = styled(UnstyledSectionsContainer)`
   margin: auto;
-  max-width: 1000px;
+  max-width: 60%;
 `;
 
 export const SectionsContainer: FunctionComponent<SectionsContainerProps> = (props) => (

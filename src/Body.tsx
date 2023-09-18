@@ -21,6 +21,10 @@ const StyledBody = styled(UnstyledBody)`
   min-height: 100vh;
   padding-bottom: 20px;
 
+  a {
+    color: ${props => props.theme.linkColor}
+  }
+
   .theme-controls__switch {
     color: ${props => props.theme.color};
   }
