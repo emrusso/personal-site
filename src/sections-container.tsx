@@ -2,7 +2,7 @@ import { FunctionComponent, HTMLAttributes, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Accordion, AccordionProps, Section } from './section';
 import { AboutMe } from './accordions/about-me';
-import { MyWork } from './accordions/my-work';
+import { MyWork } from './accordions/my-work/my-work';
 
 interface SectionsContainerProps extends HTMLAttributes<HTMLDivElement> {}
 

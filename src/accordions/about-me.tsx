@@ -1,7 +1,8 @@
-import React, { FunctionComponent, HTMLAttributes, useContext } from "react";
+import React, { FunctionComponent, HTMLAttributes } from "react";
 import styled from "styled-components";
 
-import { ThemeContext } from '../theme-context';
+import { listStyles } from "../utilities/styles";
+import { ListItem } from "../utilities/list-item";
 
 interface AboutMeProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -12,8 +13,6 @@ const researchQuestions = [
 ]
 
 const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <div {...props}>
       <div>
@@ -26,14 +25,20 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
         Not only is this fascinating to me academically, I feel that such research has the capacity to be deeply valuable to a society undergoing rapid growth in the availability of technology.
         I would like to have a strong understanding of the facets necessary to answers questions like the following:
         <ul>
-          {researchQuestions.map((question) => (
-            <li key={`research-question-${question.split(' ')[0]}`}>
-              <span className="research-question">
-                <span aria-hidden className="material-symbols-outlined">{theme?.icon}</span>
-                <span>{question}</span>
-              </span>
-            </li>
-          ))}
+          {researchQuestions.map((question, i) => {
+            const bulletId = `research-question-${i}`;
+            return (
+              <ListItem key={bulletId} bulletId={bulletId} >
+                <span
+                  className="research-question"
+                  onMouseEnter={(): void => { document.getElementById(bulletId)?.classList.add('spin'); }}
+                  onMouseLeave={(): void => { document.getElementById(bulletId)?.classList.remove('spin'); }}
+                >
+                  {question}
+                </span>
+              </ListItem>
+            );
+          })}
         </ul>
       </div>
       <div>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my three-year-old Corgi, Maisie.</div>
@@ -50,28 +55,26 @@ const StyledAboutMe = styled(UnstyledAboutMe)`
   }
 
   ul {
-    list-style: none;
-    padding-inline-start: 0;
-    line-height: 1.2em;
+    ${listStyles}
+  }
 
-    .research-question {
-      align-items: center;
-      display: flex;
-      gap: 25px;
-      margin: 5px 0;
-      padding-bottom: 10px;
+  @media(hover: hover) {
+    .research-question:hover {
+      animation: embolden 3s both;
+    }
+  }
 
-      a {
-        color: ${props => props.theme.linkColor}
-      }
+  @keyframes embolden {
+    0% {
+      font-weight: 500;
+    }
 
-      .material-symbols-outlined {
-        cursor: default;
-        font-size: 17px;
-        padding-top: 2px;
-        user-select: none;
-        color: ${props => props.theme.iconColor};
-      }
+    50% {
+      font-weight: 600;
+    }
+
+    100% {
+      font-weight: 700;
     }
   }
 `;
