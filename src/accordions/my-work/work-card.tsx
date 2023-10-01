@@ -70,7 +70,7 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
 
     &__description {
       margin: 25px;
-      font-size: 0.85em;
+      font-size: 0.8em;
 
       @media(min-width: 430px) {
         font-size: 1em;
