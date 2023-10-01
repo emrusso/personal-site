@@ -34,11 +34,11 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
       <div className="name">
         <h1><strong>Emmi Russo</strong></h1>
         <div className="name__links-container">
-          <a href="mailto:emmi@emmi.dev">emmi@emmi.dev</a>
+          <a href="mailto:emmi@emmi.dev" rel="noopener noreferrer">emmi@emmi.dev</a>
           {splitter}
           Denver, CO
           {splitter}
-          <a href="https://cdn.brandfolder.io/Z32ZS9WJ/at/4g7xcj59g59h5f3rv3zwpt6/Emmi_Russo_CV_2023.pdf">CV</a>
+          <a href={`${process.env.PUBLIC_URL}/Emmi_Russo_CV_2023.pdf`} rel="noopener noreferrer">CV</a>
         </div>
       </div>
       <div className="theme-controls" role="group" aria-labelledby="id-group-label">

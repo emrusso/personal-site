@@ -32,13 +32,15 @@ const StyledListItem = styled(UnstyledListItem)`
 
     .material-symbols-outlined {
       cursor: default;
-      // font-size: 17px;
-      // padding-top: 2px;
       user-select: none;
       color: ${props => props.theme.iconColor};
 
       &.spin {
         animation: rotate 1s linear 1;
+
+        @media(prefers-reduced-motion) {
+          animation: none;
+        }
       }
     }
   }

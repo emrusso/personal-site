@@ -12,11 +12,17 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
   const webinarDescription = (
     <span>
       A coworker and I made some goofy mistakes when we used React's Context API for the first time.
-      We captured our learnings in a <a href="https://brandfolder.engineering/useContext-performance-issue">blog post</a> and partnered with a application monitoring platform to present a webinar about our learnings.
+      We captured our learnings in a <a href="https://brandfolder.engineering/useContext-performance-issue">blog post</a> and partnered with an application monitoring platform to present a webinar about our learnings.
     </span>
   );
   const cldDescription = "Recording of a brief outline of a game created in a few weeks as a final project for UChicago's Autumn 2017 Computers for Learning course. Implemented on a custom Java-based game engine that was used for the class. Our design was to use scaffolded, scaling levels to support preschoolers in developing sequecing skills."
-  const tsDescription = "One of the pieces of software engineering I find most rewarding is helping others learn and develop skills. Here are two presentations I've given multiple times to help onboard team members to the TypeScript programming language."
+  const cheerDescription = (
+    <span>
+      I was a cheerleader for the University of Chicago my entire undergraduate career.
+      In 2017, I rebuilt the <a href="https://cheerleading.uchicago.edu">team's website</a> in AngularJS.
+      I recently revisited it to make a few tweaks, revise the mobile experience, and support the current team in updating the information.
+    </span>
+  );
   const thisSiteDescription = (
     <div>
       This site is a React app built with Create React App with SCSS and TypeScript and hosted via Firebase.
@@ -26,7 +32,7 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
             <span>move away from GitHub pages to hosting with Firebase and deploying with GitHub actions</span>
           </ListItem>
           <ListItem>
-            <span>adhere 100% to the Web Consortium Accessibility Guidelines</span>
+            <span>fully adhere to the Web Consortium Accessibility Guidelines</span>
           </ListItem>
           <ListItem>
             <span>explore styled components and theming</span>
@@ -42,12 +48,12 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           allowFullScreen
           width="400"
           height="225"
-          src="https://www.youtube.com/embed/uFgdC3ilx54?si=__Sfu5IMdAIvw0XH"
+          src="https://www.youtube.com/embed/uFgdC3ilx54?si=wqpOxqTE79-Axkvw&amp;start=1307"
           title="React Context Performance Webinar"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         />
       </WorkCard>
-      <WorkCard title="Computers for Learning Game Demo" description={cldDescription}>
+      <WorkCard title="Computers for Learning Game MVP" description={cldDescription}>
         <iframe
           allowFullScreen
           width="400"
@@ -57,20 +63,16 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         />
       </WorkCard>
-      <WorkCard title="TypeScript Teachouts" description={tsDescription}>
-        <iframe
-          src="https://drive.google.com/file/d/1cqqjScMFduuFBb-67KmtUkv-ugw4xei1/preview"
-          width="400"
-          height="225"
-          allow="autoplay"
-          title="TypeScript for Beginners"
+      <WorkCard flexContent title="cheerleading.uchicago.edu" description={cheerDescription}>
+        <img
+          alt="screen capture of desktop view of cheerleading website"
+          id="cheer-desktop"
+          src={`${process.env.PUBLIC_URL}/CheerDesktop.png`}
         />
-        <iframe
-          src="https://drive.google.com/file/d/18TSLFH5O2mJo7ViCsFaIahzMIAPvschH/preview"
-          width="400"
-          height="225"
-          allow="autoplay"
-          title="Intermediate TypeScript"
+        <img
+          alt="screen capture of mobile view of cheerleading website"
+          id="cheer-mobile"
+          src={`${process.env.PUBLIC_URL}/CheerMobile.png`}
         />
       </WorkCard>
       <WorkCard absoluteDescription title="emmi.dev" description={thisSiteDescription}>
@@ -89,24 +91,26 @@ const StyledMyWork = styled(UnstyledMyWork)`
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
+  justify-content: flex-start;
 
   ul {
     ${listStyles}
-  }
-
-  @media only screen and (max-width: 3600px) {
-    justify-content: space-between;
   }
 
   @media only screen and (min-width: 3601px) {
     gap: 50px;
   }
 
+  @media only screen and (max-width: 3600px) {
+    column-gap: 100px;
+    row-gap: 50px;
+  }
+
   @media only screen and (max-width: 600px) {
 
   }
 
-  iframe {
+  iframe, img {
     border: 0;
     border-radius: 6px;
     box-shadow: 0 6px 6px rgba(0,0,0,0.2);
@@ -129,7 +133,21 @@ const StyledMyWork = styled(UnstyledMyWork)`
       left: 177px;
       top: 96px;
       animation: rotate 5s linear infinite;
+
+      @media(prefers-reduced-motion) {
+        animation: none;
+      }
     }
+  }
+
+  #cheer-desktop {
+    width: 300px;
+  }
+
+  #cheer-mobile {
+    height: 150px;
+    margin-top: 44px;
+    margin-left: -32px;
   }
 `;
 

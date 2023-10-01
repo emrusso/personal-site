@@ -5,6 +5,7 @@ interface WorkCardProps extends HTMLAttributes<HTMLDivElement> {
   description: ReactNode;
   title: string;
   absoluteDescription?: boolean;
+  flexContent?: boolean;
 }
 
 const UnstyledWorkCard: FunctionComponent<WorkCardProps> = ({
@@ -12,13 +13,14 @@ const UnstyledWorkCard: FunctionComponent<WorkCardProps> = ({
   children,
   className,
   description,
+  flexContent = false,
   title
 }) => (
   <div className={`work-card__container ${className}`}>
     <div className="work-card__edge work-card__edge--top" />
     <div className="work-card">
       <h3 className="work-card__title"><em>{title}</em></h3>
-      <div className="work-card__content">{children}</div>
+      <div className={`work-card__content${flexContent ? ' work-card__content--flex' : ''}`}>{children}</div>
       <div className={`work-card__description${absoluteDescription ?  ' work-card__description--absolute' : ''}`}>
         {description}
       </div>
@@ -49,6 +51,11 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
 
     &__content {
       margin-top: 50px;
+
+      &--flex {
+        align-items: flex-start;
+        display: flex;
+      }
     }
 
     &__description {
