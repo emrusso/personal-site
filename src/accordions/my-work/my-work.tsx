@@ -171,7 +171,7 @@ const StyledMyWork = styled(UnstyledMyWork)`
   #cheer-desktop {
     width: 200px;
 
-    @mobile(min-width: 430px) {
+    @media(min-width: 430px) {
       width: 300px;
     }
   }
@@ -181,7 +181,7 @@ const StyledMyWork = styled(UnstyledMyWork)`
     margin-top: 44px;
     margin-left: -32px;
 
-    @mobile(min-width: 430px) {
+    @media(min-width: 430px) {
       height: 150px;
     }
   }
