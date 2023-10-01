@@ -88,26 +88,23 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
 const StyledMyWork = styled(UnstyledMyWork)`
   ${rotate}
 
+  justify-content: center;
+  gap: 26px;
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
-  justify-content: flex-start;
 
   ul {
     ${listStyles}
   }
 
-  @media only screen and (min-width: 3601px) {
+  @media only screen and (min-width: 2560px) {
+    justify-content: flex-start;
     gap: 50px;
   }
 
-  @media only screen and (max-width: 3600px) {
-    column-gap: 100px;
-    row-gap: 50px;
-  }
-
-  @media only screen and (max-width: 600px) {
-
+  @media only screen and (min-width: 1280px) and (max-width: 2559px) {
+    justify-content: space-evenly;
   }
 
   iframe, img {

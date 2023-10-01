@@ -64,8 +64,16 @@ const StyledThemeControls = styled(UnstyledThemeControls)`
   flex-direction: row;
   justify-content: space-between;
   margin: auto;
-  // vary max-width on screen size - bigger for smaller screens, 60% for desktop
-  max-width: 60%;
+  max-width: 90%;
+  padding: 26px;
+
+  @media(min-width: 1280px) {
+    max-width: 70%;
+  }
+
+  @media(min-width: 2560px) {
+    max-width: 60%;
+  }
 
   .name {
     h1 {
