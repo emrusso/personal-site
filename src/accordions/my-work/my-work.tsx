@@ -27,7 +27,7 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
     <div>
       This site is a React app built with Create React App with SCSS and TypeScript and hosted via Firebase.
       My main goals for this iteration of the site were to
-        <ul>
+        <ul className="mobile-hidden">
           <ListItem>
             <span>move away from GitHub pages to hosting with Firebase and deploying with GitHub actions</span>
           </ListItem>
@@ -46,8 +46,18 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
       <WorkCard title="Webinar: Diagnosing React Performance Issues" description={webinarDescription}>
         <iframe
           allowFullScreen
+          className="mobile-hidden"
           width="400"
           height="225"
+          src="https://www.youtube.com/embed/uFgdC3ilx54?si=wqpOxqTE79-Axkvw&amp;start=1307"
+          title="React Context Performance Webinar"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        />
+        <iframe
+          allowFullScreen
+          className="desktop-hidden"
+          width="270"
+          height="152"
           src="https://www.youtube.com/embed/uFgdC3ilx54?si=wqpOxqTE79-Axkvw&amp;start=1307"
           title="React Context Performance Webinar"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -56,8 +66,18 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
       <WorkCard title="Computers for Learning Game MVP" description={cldDescription}>
         <iframe
           allowFullScreen
+          className="mobile-hidden"
           width="400"
           height="225"
+          src="https://www.youtube.com/embed/7l9c4nomrGw?si=BhKKXyrqTYuz8Ar-"
+          title="Computers for Learning Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        />
+        <iframe
+          allowFullScreen
+          className="desktop-hidden"
+          width="270"
+          height="152"
           src="https://www.youtube.com/embed/7l9c4nomrGw?si=BhKKXyrqTYuz8Ar-"
           title="Computers for Learning Demo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -121,30 +141,49 @@ const StyledMyWork = styled(UnstyledMyWork)`
 
     &__base {
       font-size: 12em;
-      left: 129px;
+      left: 54px;
+      top: 31px;
       color: ${props => props.theme.iconColor};
+
+      @media(min-width: 430px) {
+        left: 129px;
+        top: auto;
+      }
     }
 
     &__top {
       font-size: 6em;
-      left: 177px;
-      top: 96px;
+      left: 102px;
+      top: 66px;
       animation: rotate 5s linear infinite;
 
       @media(prefers-reduced-motion) {
         animation: none;
       }
+
+      @media(min-width: 430px) {
+        left: 177px;
+        top: 96px;
+      }
     }
   }
 
   #cheer-desktop {
-    width: 300px;
+    width: 200px;
+
+    @mobile(min-width: 430px) {
+      width: 300px;
+    }
   }
 
   #cheer-mobile {
-    height: 150px;
+    height: 100px;
     margin-top: 44px;
     margin-left: -32px;
+
+    @mobile(min-width: 430px) {
+      height: 150px;
+    }
   }
 `;
 

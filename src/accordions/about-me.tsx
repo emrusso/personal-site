@@ -62,11 +62,17 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
 const StyledAboutMe = styled(UnstyledAboutMe)`
   font-size: 1.2em;
   line-height: 1.4em;
+  margin: 20px;
 
   .intro-container {
     align-items: center;
     display: flex;
-    gap: 26px;
+    flex-direction: column;
+
+    @media(min-width: 430px) {
+      flex-direction: row;
+      gap: 26px;
+    }
 
     img {
       height: 200px;

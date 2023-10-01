@@ -33,21 +33,31 @@ const UnstyledWorkCard: FunctionComponent<WorkCardProps> = ({
 );
 
 const StyledWorkCard = styled(UnstyledWorkCard)`
+  width: 300px;
+  min-width: 300px;
+  height: 400px;
   margin-right: 25px;
   margin-bottom: 50px;
-  width: 450px;
-  min-width: 450px;
-  height: 500px;
   position: relative;
+
+  @media(min-width: 430px) {
+    width: 450px;
+    min-width: 450px;
+    height: 500px;
+  }
 
   .work-card {
     align-items: center;
     border: 1px solid ${props => props.theme.color};
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 400px;
     width: 100%;
     box-shadow: 6px 6px 2px 1px ${props => props.theme.highlightColor};
+
+    @media(min-width: 430px) {
+      height: 500px;
+    }
 
     &__content {
       margin-top: 50px;
@@ -60,10 +70,19 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
 
     &__description {
       margin: 25px;
+      font-size: 0.85em;
+
+      @media(min-width: 430px) {
+        font-size: 1em;
+      }
 
       &--absolute {
         position: absolute;
-        top: 248px;
+        top: 218px;
+
+        @media(min-width: 430px) {
+          top: 248px;
+        }
       }
     }
 
@@ -73,25 +92,37 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
       width: fit-content;
       position: absolute;
       top: -32px;
-      left: -25px;
+
+      @media(min-width: 430px) {
+        left: -25px;
+      }
     }
 
     &__side {
-      height: 500px;
+      height: 400px;
       width: 1px;
       position: absolute;
-      left: 456px;
       top: 17px;
+      left: 305px;
       border-right: 1px solid ${props => props.theme.color};
+
+      @media(min-width: 430px) {
+        height: 500px;
+        left: 456px;
+      }
     }
 
     &__bottom {
       height: 1px;
-      width: 450px;
+      width: 300px;
       position: absolute;
       border-bottom: 1px solid ${props => props.theme.color};
       bottom: -20px;
       left: 6px;
+
+      @media(min-width: 430px) {
+        width: 450px;
+      }
     }
 
     &__edge {
@@ -107,7 +138,11 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
       }
 
       &--top, &--bottom-right {
-        left: 452px;
+        left: 302px;
+
+        @media(min-width: 430px) {
+          left: 452px;
+        }
       }
 
       &--bottom-right {

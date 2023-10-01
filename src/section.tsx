@@ -51,7 +51,10 @@ const StyledSection = styled(UnstyledSection)`
     button {
       color: ${props => props.theme.iconColor};
       text-transform: lowercase;
-      margin-left: -24px; // outdent caret to align headings with name
+
+      @media(min-width: 430px) {
+        margin-left: -24px; // outdent caret to align headings with name
+      }
     }
   }
 `;

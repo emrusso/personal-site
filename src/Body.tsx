@@ -28,6 +28,30 @@ const StyledBody = styled(UnstyledBody)`
   .theme-controls__switch {
     color: ${props => props.theme.color};
   }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  @media(min-width: 430px) {
+    .mobile-hidden {
+      display: block;
+    }
+
+    .desktop-hidden {
+      display: none;
+    }
+  }
+
+  .material-symbols-outlined {
+    &--filled {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  }
 `;
 
 export const Body: FunctionComponent<BodyProps> = (props) => (

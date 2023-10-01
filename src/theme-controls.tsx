@@ -11,7 +11,7 @@ interface ThemeSwitchProps extends HTMLAttributes<HTMLButtonElement> {
 const ThemeSwitch: FunctionComponent<ThemeSwitchProps> = ({ label, ...props }) => (
   <button
     aria-checked={props['aria-checked']}
-    className="theme-controls__switch"
+    className="theme-controls__switch mobile-hidden"
     type="button"
     role="switch"
     {...props}
@@ -23,11 +23,41 @@ const ThemeSwitch: FunctionComponent<ThemeSwitchProps> = ({ label, ...props }) =
   </button>
 );
 
+interface MobileThemeSwitchProps extends ThemeSwitchProps {
+  icon: string;
+}
+
+const MobileThemeSwitch: FunctionComponent<MobileThemeSwitchProps> = ({ icon, label, ...props }) => (
+  <button
+    aria-checked={props['aria-checked']}
+    className="theme-controls__switch desktop-hidden"
+    type="button"
+    role="switch"
+    {...props}
+  >
+    <span className="sr-only">{label}</span>
+    <span aria-hidden className={`material-symbols-outlined${props['aria-checked'] ? ' material-symbols-outlined--filled' : ''}`}>
+      {icon}
+    </span>
+  </button>
+);
+
 const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => {
   const { color, garden, setColor, setGarden, theme } = useContext(ThemeContext);
 
-  const themeIcon = <span aria-hidden className="material-symbols-outlined">{theme.icon}</span>;
-  const splitter = garden ? themeIcon : <span aria-hidden>|</span>;
+  const themeIcon = <span aria-hidden className="material-symbols-outlined mobile-hidden">{theme.icon}</span>;
+  const splitter = garden ? themeIcon : <span aria-hidden className="mobile-hidden">|</span>;
+
+  const darkProps: ThemeSwitchProps = {
+    'aria-checked': color === 'dark',
+    label: 'dark mode',
+    onClick: (): void => setColor((prevColor) => prevColor === 'light' ? 'dark' : 'light')
+  };
+  const gardenProps: ThemeSwitchProps = {
+    'aria-checked': garden,
+    label: 'garden mode',
+    onClick: (): void => setGarden((prevGarden) => !prevGarden)
+  }
 
   return (
     <div {...props}>
@@ -44,14 +74,18 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
       <div className="theme-controls" role="group" aria-labelledby="id-group-label">
         <h2 className="sr-only" id="id-group-label">Theme</h2>
         <ThemeSwitch
-          aria-checked={color === 'dark'}
-          label={'dark mode'}
-          onClick={(): void => setColor((prevColor) => prevColor === 'light' ? 'dark' : 'light')}
+          {...darkProps}
         />
         <ThemeSwitch
-          aria-checked={garden}
-          label={'garden mode'}
-          onClick={(): void => setGarden((prevGarden) => !prevGarden)}
+          {...gardenProps}
+        />
+        <MobileThemeSwitch
+          {...darkProps}
+          icon="dark_mode"
+        />
+        <MobileThemeSwitch
+          {...gardenProps}
+          icon="deceased"
         />
       </div>
     </div>
@@ -59,13 +93,17 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
 };
 
 const StyledThemeControls = styled(UnstyledThemeControls)`
-  align-items: center;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   margin: auto;
-  max-width: 90%;
   padding: 26px;
+  justify-content: space-between;
+  flex-direction: row;
+  width: calc(100vw - 52px);
+  align-items: center;
+
+  @media(min-width: 430px) {
+    max-width: 90%;
+  }
 
   @media(min-width: 1280px) {
     max-width: 70%;
@@ -83,25 +121,46 @@ const StyledThemeControls = styled(UnstyledThemeControls)`
     }
 
     &__links-container {
-      align-items: center;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
       text-transform: lowercase;
+
+      @media(min-width: 430px) {
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+      }
     }
   }
 
   .theme-controls {
-    border: 5px dashed ${props => props.theme.iconColor};
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    gap: 10px;
 
-    &__switch {
-      align-items: center;
-      display: flex;
-      gap: 5px;
-      justify-content: space-between;
-      width: 100%:
+    .material-symbols-outlined {
+      font-size: 3em;
+    }
+
+    @media(min-width: 430px) {
+      border: 5px dashed ${props => props.theme.iconColor};
+      padding: 20px;
+
+      .material-symbols-outlined {
+        font-size: 1em;
+      }
+
+      &__switch {
+        &.mobile-hidden {
+          display: flex;
+        }
+
+        align-items: center;
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+        width: 100%:
+      }
     }
   }
 `;

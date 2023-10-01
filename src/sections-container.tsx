@@ -43,7 +43,10 @@ const UnstyledSectionsContainer: FunctionComponent<SectionsContainerProps> = ({ 
 
 const StyledSectionsContainer = styled(UnstyledSectionsContainer)`
   margin: auto;
-  max-width: 90%;
+
+  @media(min-width: 430px) {
+    max-width: 90%;
+  }
 
   @media(min-width: 1280px) {
     max-width: 70%;
