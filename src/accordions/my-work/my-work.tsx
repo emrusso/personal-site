@@ -42,7 +42,7 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
   );
 
   return (
-    <div {...props}>
+    <div {...props} id="my-work">
       <WorkCard title="Webinar: Diagnosing React Performance Issues" description={webinarDescription}>
         <iframe
           allowFullScreen

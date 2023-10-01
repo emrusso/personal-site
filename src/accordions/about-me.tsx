@@ -18,7 +18,7 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
   const hasSymIcon = !(color === 'dark' && garden);
 
   return (
-    <div {...props}>
+    <div {...props} id="about-me">
       <div className="intro-container">
         <img alt="" src={`${process.env.PUBLIC_URL}/EmmiMaisie.png`} />
         <div>
