@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
-import { ThemeControlsProvider } from './ThemeControlsProvider';
-import { ThemeProviderWrapper } from './ThemeProviderWrapper';
+import { ThemeControlsProvider } from './theme-controls-provider';
+import { ThemeProviderWrapper } from './theme-provider-wrapper';
 
 import './App.scss';
 
