@@ -26,7 +26,8 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
   const thisSiteDescription = (
     <div>
       This site is a React app built with Create React App with SCSS and TypeScript and hosted via Firebase.
-      My main goals for this iteration of the site were to
+      <span className="desktop-hidden">My main focus for this iteration of the site was accessibility, theming, and new deployment practices.</span>
+      <span className="mobile-hidden">My main goals for this iteration of the site were to</span>
         <ul className="mobile-hidden">
           <ListItem>
             <span>move away from GitHub pages to hosting with Firebase and deploying with GitHub actions</span>
