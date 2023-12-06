@@ -92,6 +92,7 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
       width: fit-content;
       position: absolute;
       top: -32px;
+      max-width: 85%;
 
       @media(min-width: 430px) {
         left: -25px;
