@@ -15,7 +15,13 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
       We captured our learnings in a <a href="https://brandfolder.engineering/useContext-performance-issue">blog post</a> and partnered with an application monitoring platform to present a webinar about our learnings.
     </span>
   );
-  const cldDescription = "Recording of a brief outline of a game created in a few weeks as a final project for UChicago's Autumn 2017 Computers for Learning course. Implemented on a custom Java-based game engine that was used for the class. Our design was to use scaffolded, scaling levels to support preschoolers in developing sequecing skills."
+  const cldDescription = (
+    <span>
+      Recording of a game prototype created for UChicago's Computers for Learning course.
+      Our design used touch-screen-friendly controls with scaffolded, scaling levels to support preschoolers in developing sequecing skills.
+      This course and project were significant drivers of my current interests in play, technology, and learning.
+    </span>
+  );
   const cheerDescription = (
     <span>
       I was a cheerleader for the University of Chicago my entire undergraduate career.
