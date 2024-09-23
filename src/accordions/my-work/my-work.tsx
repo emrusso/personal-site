@@ -15,13 +15,6 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
       We captured our learnings in a <a href="https://brandfolder.engineering/useContext-performance-issue">blog post</a> and partnered with an application monitoring platform to present a webinar about our learnings.
     </span>
   );
-  const cldDescription = (
-    <span>
-      Recording of a game prototype created for UChicago's Computers for Learning course.
-      Our design used touch-screen-friendly controls with scaffolded, scaling levels to support preschoolers in developing sequecing skills.
-      This course and project were significant drivers of my current interests in play, technology, and learning.
-    </span>
-  );
   const cheerDescription = (
     <span>
       I was a cheerleader for the University of Chicago my entire undergraduate career.
@@ -67,26 +60,6 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           height="152"
           src="https://www.youtube.com/embed/uFgdC3ilx54?si=wqpOxqTE79-Axkvw&amp;start=1307"
           title="React Context Performance Webinar"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        />
-      </WorkCard>
-      <WorkCard title="Computers for Learning Game MVP" description={cldDescription}>
-        <iframe
-          allowFullScreen
-          className="mobile-hidden"
-          width="400"
-          height="225"
-          src="https://www.youtube.com/embed/7l9c4nomrGw?si=BhKKXyrqTYuz8Ar-"
-          title="Computers for Learning Demo"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        />
-        <iframe
-          allowFullScreen
-          className="desktop-hidden"
-          width="270"
-          height="152"
-          src="https://www.youtube.com/embed/7l9c4nomrGw?si=BhKKXyrqTYuz8Ar-"
-          title="Computers for Learning Demo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         />
       </WorkCard>

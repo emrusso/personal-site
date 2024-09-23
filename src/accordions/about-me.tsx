@@ -23,17 +23,17 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
         <img alt="" src={`${process.env.PUBLIC_URL}/EmmiMaisie.png`} />
         <div>
           <p>
-            Emmi here! I've spent the last five years as a professional full-stack software engineer.
-            I'm known on my team for thoughtful code reviews, strong empathy for users and teammates alike, and an attention to detail, with communication skills that keep everyone on the same page. In fact, I even won <a href="https://www.smartsheet.com/content-center/inside-smartsheet/company-news/meet-our-q1-brightspot-award-winners">an award</a> for it!
+            Emmi here! I am a first-year Information Science PhD student at the University of Washington's Information School.
+            
+            Prior to my PhD studies, I was a professional full-stack software engineer employed by Google, Square, Microsoft, and Smartsheet.
           </p>
-          <p>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my three-year-old Corgi, Maisie.</p>
+          <p>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my four-year-old Corgi, Maisie.</p>
         </div>
       </div>
       <p>
-        I have an academic background in developmental cognitive psychology and computer science.
-        I am interested in how children learn through structured and unstructured play and how that translates to play with machines, particularly in the context of video games and mobile applications.
-        Not only is this fascinating to me academically, I feel that such research has the capacity to be deeply valuable to a society undergoing rapid growth in the availability of technology.
-        I would like to have a strong understanding of the facets necessary to answers questions like the following:
+        I study how children learn through structured and unstructured play and how that translates to play with machines, particularly in the context of video games and mobile applications.
+        Not only is this fascinating to me as a research subject, I feel that such research has the capacity to be deeply valuable to a society undergoing rapid growth in the availability of technology.
+        I aim to answers questions like the following:
       </p>
       <ul>
         {researchQuestions.map((question, i) => {
