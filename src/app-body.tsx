@@ -2,10 +2,15 @@ import { FunctionComponent, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { ThemeControls } from './theme-controls';
 import { SectionsContainer } from './sections-container';
+// import { balancedLatinSquares } from './research-utils/balanced-latin-squares';
 
 interface BodyProps extends HTMLAttributes<HTMLDivElement> {}
 
 const UnstyledBody: FunctionComponent<BodyProps> = (props) => {
+  // useEffect(() => {
+  //   balancedLatinSquares(16);
+  // }, []);
+
   return (
     <div {...props}>
       <ThemeControls />
