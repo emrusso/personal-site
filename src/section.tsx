@@ -30,10 +30,10 @@ const UnstyledSection: FunctionComponent<SectionProps> = ({ accordion, accordion
           onClick={(): void => { setAccordionsOpen({ ...accordionsOpen, [accordion]: !accordionsOpen[accordion] }); }}
           type="button"
         >
-          <span className="material-symbols-outlined">
+          <span className="material-symbols-outlined accordion-icon">
             {accordionsOpen[accordion] ? 'expand_more' : 'navigate_next'}
           </span>
-          {title}
+          <span className="accordion-button-title">{title}</span>
         </button>
       </h2>
       {accordionsOpen[accordion] && children}
@@ -50,10 +50,20 @@ const StyledSection = styled(UnstyledSection)`
 
     button {
       color: ${props => props.theme.iconColor};
+      display: flex;
+      align-items: center;
       text-transform: lowercase;
 
+      .accordion-icon {
+        font-size: 42px;
+      }
+
+      .accordion-button-title {
+        margin-bottom: 6px; // fix text offset to actually be center aligned with icon
+      }
+
       @media(min-width: 430px) {
-        margin-left: -24px; // outdent caret to align headings with name
+        margin-left: -42px; // outdent caret to align headings with name
       }
     }
   }

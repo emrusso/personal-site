@@ -71,17 +71,28 @@ const StyledWorkCard = styled(UnstyledWorkCard)`
     &__description {
       margin: 25px;
       font-size: 0.8em;
+      flex: 1;
+      align-content: center;
+      text-align: justify;
 
       @media(min-width: 430px) {
         font-size: 1em;
+        line-height: 1.5em;
       }
 
       &--absolute {
         position: absolute;
         top: 218px;
+        text-align: left;
+        line-height: 1em;
+        height: 132px;
+        align-content: center;
+        line-height: 1.5em;
 
         @media(min-width: 430px) {
           top: 248px;
+          height: 102px;
+          line-height: 1em;
         }
       }
     }

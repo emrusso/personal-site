@@ -40,6 +40,18 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
         </ul>
     </div>
   );
+  const eatiDescription = (
+    <div>
+      Outside of my academic work, I host a podcast with my good friend,
+      {' '}<a href="https://annienazzaro.com">Annie Nazzaro</a>.
+      Every other week, we discuss indie video games we're playing.
+      You can listen on{' '}
+      <a href="https://open.spotify.com/show/48Y1fGZIiR6V6BR6MGx8d4?si=7465812c13f64869">Spotify</a>{', '}
+      <a href="https://podcasts.apple.com/us/podcast/emmi-annie-talk-indie/id1788230718">Apple Podcasts</a>, and most other{' '}
+      <a href="https://www.buzzsprout.com/2428722/follow">podcast services</a>.
+      Or, you can listen on <a href="https://eati.games">our website</a>, which I created and maintain.
+    </div>
+  );
 
   return (
     <div {...props} id="my-work">
@@ -80,6 +92,13 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           <span aria-hidden className="icon__top material-symbols-outlined">filter_vintage</span>
           <span aria-hidden className="icon__base material-symbols-outlined">laptop</span>
         </div>
+      </WorkCard>
+      <WorkCard title="Emmi &amp; Annie Talk Indie" description={eatiDescription}>
+        <img
+          alt=""
+          id="eati"
+          src={`${process.env.PUBLIC_URL}/eati.png`}
+        />
       </WorkCard>
     </div>
   );
@@ -163,6 +182,14 @@ const StyledMyWork = styled(UnstyledMyWork)`
 
     @media(min-width: 430px) {
       height: 150px;
+    }
+  }
+
+  #eati {
+    width: 150px;
+
+    @media(min-width: 430px) {
+      width: 200px;
     }
   }
 `;

@@ -68,7 +68,7 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
           {splitter}
           Seattle, WA
           {splitter}
-          <a href={`${process.env.PUBLIC_URL}/Emmi_Russo_CV_2024.pdf`} rel="noopener noreferrer">CV</a>
+          <a href={`${process.env.PUBLIC_URL}/Emmi_Russo_CV_2025.pdf`} rel="noopener noreferrer">CV</a>
         </div>
       </div>
       <div className="theme-controls" role="group" aria-labelledby="id-group-label">
