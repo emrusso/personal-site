@@ -23,11 +23,11 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
         <img alt="" src={`${process.env.PUBLIC_URL}/EmmiMaisie.png`} />
         <div>
           <p>
-            I am a PhD student at the University of Washington's <a href="https://ischool.uw.edu/">Information School</a> and member of its <a href="https://userempowerment.org">User Empowerment Lab</a> and <a href="https://digitalyouth.uw.edu/">Digital Youth Lab</a>.
+            I am a PhD student at the University of Washington's <a href="https://ischool.uw.edu/">Information School</a> and member of its <a href="https://userempowerment.org">User Empowerment Lab</a>, <a href="https://gamer.ischool.uw.edu/">GAMER Group</a>, and <a href="https://digitalyouth.uw.edu/">Center for Digital Youth</a>.
             
             Prior to my PhD studies, I worked as a full-stack software engineer at Google, Square, Microsoft, and Smartsheet.
           </p>
-          <p>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my five-year-old Corgi, Maisie.</p>
+          <p>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my Corgi, Maisie.</p>
         </div>
       </div>
       <p>
