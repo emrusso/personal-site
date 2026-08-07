@@ -8,14 +8,17 @@ import { ThemeContext } from "../theme-context";
 interface AboutMeProps extends HTMLAttributes<HTMLDivElement> {}
 
 const researchQuestions = [
-  "How do existing technology designs help or hinder interpersonal relationship well-being?",
-  "How do we design engaging, playful technology without leveraging manipulative design tactics?",
-  "How do we design games and technology for children to support their tendency to develop knowledge through play?"
+  "How do children conceptualize and experience autonomy? How can we design technology to enrich children's experiences of autonomy?",
+  "How does shared family gaming offer opportunities for child-led play and discovery? How does game design influence these opportunities?",
+  "How do monetization design patterns in free-to-play video games influence children's purchase choices?"
 ]
 
 const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
   const { color, garden } = useContext(ThemeContext);
   const hasSymIcon = !(color === 'dark' && garden);
+  const currentDate = new Date();
+  const weddingDate = new Date('2026-09-12');
+  const partnerTerm = currentDate > weddingDate ? 'husband' : 'fiancé';
 
   return (
     <div {...props} id="about-me">
@@ -23,38 +26,39 @@ const UnstyledAboutMe: FunctionComponent<AboutMeProps> = (props) => {
         <img alt="" src={`${process.env.PUBLIC_URL}/EmmiMaisie.png`} />
         <div>
           <p>
-            I am a PhD student at the University of Washington's <a href="https://ischool.uw.edu/">Information School</a> and member of its <a href="https://userempowerment.org">User Empowerment Lab</a>, <a href="https://gamer.ischool.uw.edu/">GAMER Group</a>, and <a href="https://digitalyouth.uw.edu/">Center for Digital Youth</a>.
-            
-            Prior to my PhD studies, I worked as a full-stack software engineer at Google, Square, Microsoft, and Smartsheet.
+            I am a PhD candidate at the University of Washington's <a href="https://ischool.uw.edu/">Information School</a> and member of its <a href="https://userempowerment.org">User Empowerment Lab</a>, <a href="https://gamer.ischool.uw.edu/">GAMER Group</a>, and <a href="https://digitalyouth.uw.edu/">Center for Digital Youth</a>.
           </p>
-          <p>In my free time I like to play video games, listen to podcasts about anything and everything, and pester my Corgi, Maisie.</p>
+          <p>
+            I study how the design of digital technology presents both risks and opportunities for children's autonomy. I am particularly passionate about studying young children's digital gaming practices through playful, child-led design and research methods.
+          </p>
         </div>
       </div>
       <p>
-        I study how technology, especially video games, can be designed to support play, interpersonal relationships, and well-being. I'm particularly interested in preschool children's technology use and how we might design developmentally-appropriate technology for young children that supports self-directed play.
-
-        My research is guided by questions like the following:
+        My current research examines the following questions:
+        <ul>
+          {researchQuestions.map((question, i) => {
+            const bulletId = `research-question-${i}`;
+            return (
+              <ListItem key={bulletId} bulletId={bulletId} >
+                <span
+                  className="research-question"
+                  onMouseEnter={(): void => {
+                    if (hasSymIcon) {
+                      document.getElementById(bulletId)?.classList.add('spin');
+                    }
+                  }}
+                  onMouseLeave={(): void => { document.getElementById(bulletId)?.classList.remove('spin'); }}
+                >
+                  {question}
+                </span>
+              </ListItem>
+            );
+          })}
+        </ul>
       </p>
-      <ul>
-        {researchQuestions.map((question, i) => {
-          const bulletId = `research-question-${i}`;
-          return (
-            <ListItem key={bulletId} bulletId={bulletId} >
-              <span
-                className="research-question"
-                onMouseEnter={(): void => {
-                  if (hasSymIcon) {
-                    document.getElementById(bulletId)?.classList.add('spin');
-                  }
-                }}
-                onMouseLeave={(): void => { document.getElementById(bulletId)?.classList.remove('spin'); }}
-              >
-                {question}
-              </span>
-            </ListItem>
-          );
-        })}
-      </ul>
+      <p>
+        Prior to pursuing my PhD, I worked as a full-stack software developer at Microsoft and Smartsheet. In my free time I like to play video games, watch skateboarding competitions with my {partnerTerm}, and pester our dog, Maisie.
+      </p>
     </div>
 );
 };

@@ -9,19 +9,28 @@ import { WorkCard } from './work-card';
 interface MyWorkProps extends HTMLAttributes<HTMLDivElement> {}
 
 const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
+  const pgtDescription = (
+    <div>
+      <p>Emilia Russo-Giometti, Nisha Devasia, and Alexis Hiniker. 2026. How Romantic Partners Build "Sound Relationship Houses" through Shared Gaming. <em>Proc. ACM Hum.-Comput. Interact.</em> 10, 7, Article GAMES038 (November 2026), 36 pages. <a href="https://doi.org/10.1145/3831343">https://doi.org/10.1145/3831343</a></p>
+      <p><a href="https://faculty.washington.edu/alexisr/PGT.pdf">Pre-print available here.</a></p>
+    </div>
+  );
+  // const teachingDescription = (
+  //   <span>I have frequently worked as a TA for undergraduate courses covering research methods, game design, and interaction design.</span>
+  // )
   const webinarDescription = (
     <span>
       A coworker and I made some goofy mistakes when we used React's Context API for the first time.
       We captured our learnings in a <a href="https://brandfolder.engineering/useContext-performance-issue">blog post</a> and partnered with an application monitoring platform to present a webinar about our learnings.
     </span>
   );
-  const cheerDescription = (
-    <span>
-      I was a cheerleader for the University of Chicago my entire undergraduate career.
-      In 2017, I rebuilt the <a href="https://cheerleading.uchicago.edu">team's website</a> in AngularJS.
-      I recently revisited it to make a few tweaks, revise the mobile experience, and support the current team in updating the information.
-    </span>
-  );
+  // const cheerDescription = (
+  //   <span>
+  //     I was a cheerleader for the University of Chicago my entire undergraduate career.
+  //     In 2017, I rebuilt the <a href="https://cheerleading.uchicago.edu">team's website</a> in AngularJS.
+  //     I recently revisited it to make a few tweaks, revise the mobile experience, and support the current team in updating the information.
+  //   </span>
+  // );
   const thisSiteDescription = (
     <div>
       This site is a React app built with Create React App with SCSS and TypeScript and hosted via Firebase.&nbsp;
@@ -55,6 +64,20 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
 
   return (
     <div {...props} id="my-work">
+      <WorkCard title="ACM CHI PLAY 2026" containsCitation description={pgtDescription}>
+        <img
+          alt="On the left a shared gaming diagram is laid over a brick. The shared gaming diagram is made up of three pieces: shared gaming needs, play strategy, and game design. The three pieces fit neatly into each other like puzzle pieces. On the right is a brick house with the characteristics of the Sound Relationship House inside. There are three lines from the brick diagram to the brick house, implying that the shared gaming brick is three different bricks in the brick house."
+          id="pgt"
+          src={`${process.env.PUBLIC_URL}/pgt.png`}
+        />
+      </WorkCard>
+      {/* <WorkCard title="Teaching" description={teachingDescription}>
+        <img
+          alt=""
+          id="uwLogo"
+          src={`${process.env.PUBLIC_URL}/uw.png`}
+        />
+      </WorkCard> */}
       <WorkCard title="Webinar: Diagnosing React Performance Issues" description={webinarDescription}>
         <iframe
           allowFullScreen
@@ -75,7 +98,7 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         />
       </WorkCard>
-      <WorkCard flexContent title="cheerleading.uchicago.edu" description={cheerDescription}>
+      {/* <WorkCard flexContent title="cheerleading.uchicago.edu" description={cheerDescription}>
         <img
           alt="screen capture of desktop view of cheerleading website"
           id="cheer-desktop"
@@ -86,7 +109,7 @@ const UnstyledMyWork: FunctionComponent<MyWorkProps> = (props) => {
           id="cheer-mobile"
           src={`${process.env.PUBLIC_URL}/CheerMobile.png`}
         />
-      </WorkCard>
+      </WorkCard> */}
       <WorkCard absoluteDescription title="emmi.dev" description={thisSiteDescription}>
         <div className="icon__container">
           <span aria-hidden className="icon__top material-symbols-outlined">filter_vintage</span>
@@ -190,6 +213,14 @@ const StyledMyWork = styled(UnstyledMyWork)`
 
     @media(min-width: 430px) {
       width: 200px;
+    }
+  }
+
+  #pgt, #uwLogo {
+    width: 270px;
+
+    @media(min-width: 430px) {
+      width: 400px;
     }
   }
 `;

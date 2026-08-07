@@ -47,6 +47,9 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
 
   const themeIcon = <span aria-hidden className="material-symbols-outlined mobile-hidden">{theme.icon}</span>;
   const splitter = garden ? themeIcon : <span aria-hidden className="mobile-hidden">|</span>;
+  const currentDate = new Date();
+  const weddingDate = new Date('2026-09-12');
+  const lastName = currentDate > weddingDate ? 'Russo-Giometti' : 'Russo'
 
   const darkProps: ThemeSwitchProps = {
     'aria-checked': color === 'dark',
@@ -62,13 +65,13 @@ const UnstyledThemeControls: FunctionComponent<ThemeControlsProps> = (props) => 
   return (
     <div {...props}>
       <div className="name">
-        <h1><strong>Emmi Russo</strong></h1>
+        <h1><strong>Emmi {lastName}</strong></h1>
         <div className="name__links-container">
-          <a href="mailto:emmi@emmi.dev" rel="noopener noreferrer">emmi@emmi.dev</a>
+          <a href="mailto:emrusso@uw.edu" rel="noopener noreferrer">emrusso@uw.edu</a>
           {splitter}
           Seattle, WA
           {splitter}
-          <a href={`${process.env.PUBLIC_URL}/Emmi_Russo_CV_2025.pdf`} rel="noopener noreferrer">CV</a>
+          <a href={`${process.env.PUBLIC_URL}/Emmi_Russo_CV.pdf`} rel="noopener noreferrer">CV</a>
         </div>
       </div>
       <div className="theme-controls" role="group" aria-labelledby="id-group-label">
